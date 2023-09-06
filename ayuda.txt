@@ -1,0 +1,11 @@
+-para guardar la ruta del nvm
+
+source $(brew --prefix nvm)/nvm.sh
+
+-para crear el proyecto vacio
+npm create astro@2.0.2 
+-para crear el proyecto con plantilla
+npm create astro@2.0.2  -- --template portfolio
+-para ejecutar el proyecto
+npm run dev
+
