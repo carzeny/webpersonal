@@ -1,0 +1,108 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charly</title>
+</head>
+<body>
+    <div id="global" class="min-h-screen">
+        <Header/>
+        <slot name="article"/>
+        <Footer/>
+    </div>
+</body>
+<script is:inline>
+let barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+let cartas=["/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png","/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png"];
+let i=barpos.length;
+let  l=0, temp=0, j=0, clic=0, primerclic=0, segundoclic=0, aciertos=0;
+let  img1="",img2="";
+
+
+const barajear=()=>
+{barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+ i=barpos.length;
+   while(--i>0)
+    { j=Math.floor(Math.random()* (i+1));
+      temp=barpos[j];
+      barpos[j]=barpos[i]
+      barpos[i]=temp
+    }
+}
+barajear()
+
+const felicidades=()=>
+      {  
+        const nuevoMemorama=()=>
+        { var output='';
+        barajear();
+         output='<div> <img id="img0" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(0)"/></div><div> <img id="img1" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(1)"/> </div><div> <img id="img2" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(2)"/> </div><div> <img id="img3" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(3)"/> </div><div> <img id="img4" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(4)"/> </div><div> <img id="img5" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(5)"/> </div><div> <img id="img6" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(6)"/> </div><div> <img id="img7" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(7)"/> </div><div> <img id="img8" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(8)"/> </div><div> <img id="img9" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(9)"/> </div><div> <img id="img10" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(10)"/> </div><div> <img id="img11" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(11)"/> </div><div> <img id="img12" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(12)"/> </div><div> <img id="img13" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(13)"/> </div><div> <img id="img14" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(14)"/> </div><div> <img id="img15" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(15)"/> </div><div> <img id="img16" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(16)"/> </div><div> <img id="img17" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(17)"/> </div><div> <img id="img18" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(18)"/> </div><div> <img id="img19" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(19)"/> </div>'
+        document.getElementById('table_memoria').innerHTML=output;
+          
+        }
+        var siono=confirm("Desea continuar ");
+       if (siono===true)
+       {
+        aciertos=0;
+        barajear();
+        nuevoMemorama();
+       }
+       else alert("GAME OVER");
+      }
+const detenerTiempo=()=>
+{  
+  document.getElementById('img'+primerclic).src="/public/pregunta.jpeg";
+  document.getElementById('img'+segundoclic).src="/public/pregunta.jpeg";
+
+}
+const adivinoCartas=()=>
+{
+  document.getElementById('img'+primerclic).hidden=true;
+  document.getElementById('img'+segundoclic).hidden=true;
+}
+
+const voltearCarta=(pos)=>
+{
+  ++clic;
+  if(clic<=2)
+   {  document.getElementById('img'+pos).src=cartas[barpos[pos]];
+     
+     if (clic==2)
+      {
+       img2=cartas[barpos[pos]];
+       segundoclic=pos;
+       ++clic;
+      }
+      if (clic==1)
+      {
+       img1=cartas[barpos[pos]];
+       primerclic=pos;     
+      }
+   }
+   if (clic>2)
+   { 
+     if(img1===img2)
+      {
+        setTimeout("adivinoCartas()",500);
+        ++aciertos;
+        if(aciertos==10)
+        setTimeout("felicidades()",1000);
+      }
+      else
+      {   //El nombre de la funcion debe de ir entre comillas
+          setTimeout("detenerTiempo()",500);
+      }
+      clic=0;
+   }
+}
+</script>
+</html>
+<style is:global>
+    
+</style>

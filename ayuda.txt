@@ -1,11 +1,29 @@
 -para guardar la ruta del nvm
-
 source $(brew --prefix nvm)/nvm.sh
-
+-para cambiar de version de node
+nvm use v18.17.1  
 -para crear el proyecto vacio
+Astro es framework para crear paginas landingpages
 npm create astro@2.0.2 
 -para crear el proyecto con plantilla
 npm create astro@2.0.2  -- --template portfolio
 -para ejecutar el proyecto
 npm run dev
+
+-para crear el proyecto fuente 
+npm run build
+
+-pagina para iconos
+flaticon.com
+
+Tarea
+-poner un botoen en el juego del ahorcado para recargar la pagina window.reload()
+
+
+
+
+
+
+
+
 
