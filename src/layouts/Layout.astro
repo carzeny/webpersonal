@@ -18,6 +18,8 @@ import Footer from '../components/Footer.astro'
     </div>
 </body>
 <script is:inline>
+
+//Codigo para el juego del memorama
 let barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
 let cartas=["/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png","/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png"];
 let i=barpos.length;
@@ -101,6 +103,126 @@ const voltearCarta=(pos)=>
       clic=0;
    }
 }
+//Termian el codigo para el juego del memorama
+
+//Codigo para el juego de numeros 
+let posnum=[0,1,2,3,4,5,6,7,8,9];
+let poscargadas=[];
+let numeros=["/public/cero.png","/public/uno.png","/public/dos.png","/public/tres.png","/public/cuatro.png","/public/cinco.png","/public/seis.png","/public/siete.png","/public/ocho.png","/public/nueve.png"];
+let dioclic=-1, ban=0;
+
+const barajearNum=()=>
+{posnum=[0,1,2,3,4,5,6,7,8,9];
+ i=posnum.length;
+   while(--i>0)
+    { j=Math.floor(Math.random()* (i+1));
+      temp=posnum[j];
+      posnum[j]=posnum[i]
+      posnum[i]=temp
+    }
+}
+barajearNum();
+function ganaste() {
+alert(">>>>>> Ganaste eres un G E N I O <<<<<<");
+  
+}
+
+function tapar()
+{
+  for (let i=0; i<5; i++)
+  {
+    document.getElementById("num"+i).src="/public/pregunta.png";
+  }
+}
+function cargarNum(n)
+{dioclic++;
+  if (dioclic===0)
+  {
+    if (poscargadas[dioclic]==posnum[n])
+     {
+      document.getElementById("num"+n).src=numeros[posnum[n]];
+     }
+     else
+     {
+      document.getElementById("num"+n).src="/public/fallo.png"
+      ban=1
+     }
+  }
+  if (dioclic===1)
+  {
+    if (poscargadas[dioclic]==posnum[n])
+     {
+      document.getElementById("num"+n).src=numeros[posnum[n]];
+     }
+     else
+     {
+      document.getElementById("num"+n).src="/public/fallo.png"
+      ban=1;
+     }
+  }
+  if (dioclic===2)
+  {
+    if (poscargadas[dioclic]==posnum[n])
+     {
+      document.getElementById("num"+n).src=numeros[posnum[n]];
+     }
+     else
+     {
+      document.getElementById("num"+n).src="/public/fallo.png"
+      ban=1
+     }
+  }
+  if (dioclic===3)
+  {
+    if (poscargadas[dioclic]==posnum[n])
+     {
+      document.getElementById("num"+n).src=numeros[posnum[n]];
+     }
+     else
+     {
+      document.getElementById("num"+n).src="/public/fallo.png"
+      ban=1;
+     }
+  }
+  if (dioclic===4)
+  {
+    if (poscargadas[dioclic]==posnum[n])
+     {
+      document.getElementById("num"+n).src=numeros[posnum[n]];
+     }
+     else
+     {
+      document.getElementById("num"+n).src="/public/fallo.png"
+      ban=1;
+     }
+  }
+  if(dioclic==4 && ban==0)
+    setTimeout("ganaste()",500);
+  
+
+  //document.getElementById("num"+n).src=numeros[posnum[n]];
+  //alert("clicl "+dioclic+ "  "+posnum[n]+" id "+"num"+n);
+  
+}
+function voltear()
+{ barajearNum();
+  dioclic=-1;
+  ban=0;
+  for (let i=0; i<5; i++)
+    poscargadas[i]=posnum[i];
+  poscargadas=poscargadas.sort((a,b)=>(a-b));
+
+  for (let i=0; i<5; i++)
+  {
+    document.getElementById("num"+i).src=numeros[posnum[i]];
+  }
+  console.log(posnum);
+  console.log(poscargadas);
+  setTimeout("tapar()",1000);
+}
+  
+
+
 </script>
 </html>
 <style is:global>
