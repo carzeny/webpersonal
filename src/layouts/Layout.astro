@@ -17,7 +17,7 @@ import Footer from '../components/Footer.astro'
         <Footer/>
     </div>
 </body>
-<script is:inline>
+<script is:global>
 
 //Codigo para el juego del memorama
 let barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
@@ -197,12 +197,7 @@ function cargarNum(n)
      }
   }
   if(dioclic==4 && ban==0)
-    setTimeout("ganaste()",500);
-  
-
-  //document.getElementById("num"+n).src=numeros[posnum[n]];
-  //alert("clicl "+dioclic+ "  "+posnum[n]+" id "+"num"+n);
-  
+    setTimeout("ganaste()",300);
 }
 function voltear()
 { barajearNum();
@@ -220,11 +215,11 @@ function voltear()
   console.log(poscargadas);
   setTimeout("tapar()",1000);
 }
-  
+// termina codigo de juego de numeros
+
+// juego de figuras
+
 
 
 </script>
 </html>
-<style is:global>
-    
-</style>

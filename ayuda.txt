@@ -13,15 +13,9 @@ npm run dev
 -para crear el proyecto fuente 
 npm run build
 
-
-
-
-
-
-
-
-
-
-
-
-
+-para ver el status en git
+git status
+-para agregar al staging area todos los archivos del proyecto
+git add .
+-cuando tenemos una version terminada y la vamos a subir al repository
+git commit -m “se agrego el juego de encontrar secuencia de numeros”

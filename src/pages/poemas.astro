@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Blog from '../components/Blog.astro';
+import Layout from '../layouts/Layout.astro';
+const blog =await getCollection("poemas");
+---
+<!-- <div slot="article" class=" w-full flex justify-center dark:bg-violet-200 dark: text-gray-700 mt-5 mb-5">
+	<div class=" w-full md:max-w-5xl flex-col"> -->
+
+<Layout>
+    <div slot="article" class=" w-full flex justify-center  dark:bg-violet-200 dark: text-gray-700 mt-5 mb-5">
+		<div class=" md:max-w-5xl grid gap-4 grid-cols-2 justify-center">
+				{ blog.map((project)=>(
+				<Blog
+					title={project.data.title}
+					link={project.data.link}
+					description={project.data.description}
+					/>
+				))
+				}
+		</div>
+	</div>
+</Layout>
