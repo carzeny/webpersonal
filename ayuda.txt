@@ -19,3 +19,10 @@ git status
 git add .
 -cuando tenemos una version terminada y la vamos a subir al repository
 git commit -m “se agrego el juego de encontrar secuencia de numeros”
+
+-para agregar mi sitio de forma gratuita en netlify
+https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/
+
+-tuve que modificar la ruta de los archivos en el index principal quedo por ejemplo
+/charly.png
+-y en la 
