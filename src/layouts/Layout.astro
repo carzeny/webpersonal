@@ -17,7 +17,7 @@ import Footer from '../components/Footer.astro'
         <Footer/>
     </div>
 </body>
-<script is:global>
+<script is:inline>
 
 //Codigo para el juego del memorama
 let barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
@@ -113,8 +113,8 @@ let dioclic=-1, ban=0;
 
 const barajearNum=()=>
 {posnum=[0,1,2,3,4,5,6,7,8,9];
- i=posnum.length;
-   while(--i>0)
+i=posnum.length;
+  while(--i>0)
     { j=Math.floor(Math.random()* (i+1));
       temp=posnum[j];
       posnum[j]=posnum[i]
@@ -139,62 +139,62 @@ function cargarNum(n)
   if (dioclic===0)
   {
     if (poscargadas[dioclic]==posnum[n])
-     {
+    {
       document.getElementById("num"+n).src=numeros[posnum[n]];
-     }
-     else
-     {
+    }
+    else
+    {
       document.getElementById("num"+n).src="/public/fallo.png"
       ban=1
-     }
+    }
   }
   if (dioclic===1)
   {
     if (poscargadas[dioclic]==posnum[n])
-     {
+    {
       document.getElementById("num"+n).src=numeros[posnum[n]];
-     }
-     else
-     {
+    }
+    else
+    {
       document.getElementById("num"+n).src="/public/fallo.png"
       ban=1;
-     }
+    }
   }
   if (dioclic===2)
   {
     if (poscargadas[dioclic]==posnum[n])
-     {
+    {
       document.getElementById("num"+n).src=numeros[posnum[n]];
-     }
-     else
-     {
+    }
+    else
+    {
       document.getElementById("num"+n).src="/public/fallo.png"
       ban=1
-     }
+    }
   }
   if (dioclic===3)
   {
     if (poscargadas[dioclic]==posnum[n])
-     {
+    {
       document.getElementById("num"+n).src=numeros[posnum[n]];
-     }
-     else
-     {
+    }
+    else
+    {
       document.getElementById("num"+n).src="/public/fallo.png"
       ban=1;
-     }
+    }
   }
   if (dioclic===4)
   {
     if (poscargadas[dioclic]==posnum[n])
-     {
+    {
       document.getElementById("num"+n).src=numeros[posnum[n]];
-     }
-     else
-     {
+    }
+    else
+    {
       document.getElementById("num"+n).src="/public/fallo.png"
       ban=1;
-     }
+    }
   }
   if(dioclic==4 && ban==0)
     setTimeout("ganaste()",300);
@@ -217,9 +217,133 @@ function voltear()
 }
 // termina codigo de juego de numeros
 
-// juego de figuras
+//>>>>>>>> juego de figuras <<<<<<<<
+let figuras=["/rojo.png","/amarillo.png","/blanco.png","/verde.png","/gris.png","/azul.png"];
+let numfig=[0,1,2,3,4,5];
+let numfigfin=[];
+let clicfig=-1;
+const barafig=()=>
+{
+  i=numfig.length;
+    while(--i>0)
+    { j=Math.floor(Math.random()* (i+1));
+      temp=numfig[j];
+      numfig[j]=numfig[i]
+      numfig[i]=temp
+    }
+}
+barafig();
+for(let p=0;p<numfig.length;p++)
+  numfigfin[p]=numfig[p];
+const barafigfin=()=>
+{
+  i=numfigfin.length;
+    while(--i>0)
+    { j=Math.floor(Math.random()* (i+1));
+      temp=numfigfin[j];
+      numfigfin[j]=numfigfin[i]
+      numfigfin[i]=temp
+    }
+    
+}
+barafigfin();
+let cfi=0
+function mostrarFig(posfig)
+{ 
+  setTimeout(() => {
+    console.log(figuras[numfig[posfig]]);
+    document.getElementById("fim").src=figuras[numfig[posfig]];
+  }, posfig*550);
+}
+function mosFig()
+{ 
+  setTimeout(() => {
+    for(let p=0;p<6;p++)
+      {   console.log(figuras[numfigfin[p]]);
+        console.log(numfigfin[p])
+        document.getElementById("fig"+p).src=figuras[numfigfin[p]];
+      }
+    }, cfi*80);
+}
 
+function ocultar()
+{ let clic=document.getElementById("btnfig");
+  if (clic)
+  { numfig=[0,1,2,3,4,5];
+    cfi=0;
+    clicfig=-1;
+    barafig();
+    for(let p=0;p<numfig.length;p++)
+    numfigfin[p]=numfig[p];
+    barafigfin();
+    let cargarfigpantalla='<div><img id="fig0"src="/public/pregunta.jpeg" width="150px" height="130px" onclick="{dioclicfig(0)}"/></div><div></div><div><img id="fig1" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(1)}"/></div><div><img id="fig2" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(2)}"/> </div><div> <img id="fim" src="/public/pregunta.jpeg" width= "150px" height="130px"/></div><div><img id="fig3" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(3)}"/></div><div><img id="fig4" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(4)}"/></div><div></div><div><img id="fig5" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(5)}"/></div>';
+    document.getElementById("oMostrar").innerHTML=cargarfigpantalla;
+    document.getElementById("fim").hidden=false;
 
-
+  }
+  for(cfi=0; cfi<6;cfi++)
+    mostrarFig(cfi);
+  
+    setTimeout(() => {
+      //console.log("carga la pregunta")
+      document.getElementById("fim").hidden=true;
+      //document.getElementById("fig2").src="/pregunta.jpeg";
+      mosFig();
+    }, cfi*500);
+    console.log(numfig);
+    console.log(numfigfin);
+    
+}
+function dioclicfig(pfig)
+{clicfig++;
+  console.log(numfig[clicfig]," ",numfigfin[pfig])
+  if(clicfig==0)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+    //{
+      //console.log(numfig[clicfig]," ",numfig[0])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+   // }
+  else
+    document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  if(clicfig==1)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+    else
+      document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  if(clicfig==2)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+    else
+      document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  if(clicfig==3)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+    else
+      document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  if(clicfig==4)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+    else
+      document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  if(clicfig==5)
+  { 
+    if (numfigfin[pfig]==numfig[clicfig])
+      document.getElementById("fig"+pfig).src="/public/bien.png";
+    else
+      document.getElementById("fig"+pfig).src="/public/fallo.png";
+  }
+  console.log("dio clic en fig "+pfig);
+  console.log(figuras[numfigfin[pfig]]);
+}
 </script>
 </html>

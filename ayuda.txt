@@ -25,4 +25,91 @@ https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlif
 
 -tuve que modificar la ruta de los archivos en el index principal quedo por ejemplo
 /charly.png
--y en la 
+
+>>>>>>>  para cargar archivos mdx <<<<<<<<<<
+-se crea la carpeta content y dentro de la carpeta projects se crean los archivos proyecto1.mdx, proyecto2.mdx
+-dentro de cada archivo mdx
+---
+title: "El proyecto 1 (23-noviembre-2023)"
+link: "/proyecto1/"
+description: "Este es el proyecto 1."
+---
+-en la carpeta pages se crea el archivo proyecto.astro con el sigueoente codigo
+---
+import { getCollection } from 'astro:content';
+import Proyecto from '../components/Proyecto.astro';
+import Layout from '../layouts/Layout.astro';
+const proyecto =await getCollection("proyectos");
+---
+
+<Layout>
+    <div slot="article" class=" w-full flex justify-center  dark:bg-violet-200 dark: text-gray-700 mt-5 mb-5">
+		<div class=" md:max-w-5xl grid gap-4 grid-cols-2 justify-center">
+				{ proyecto.map((project)=>(
+				<Blog
+					title={project.data.title}
+					link={project.data.link}
+					description={project.data.description}
+					/>
+				))
+				}
+		</div>
+	</div>
+</Layout>
+
+-en la carpeta componentes se agrega el componente Proyecto.astro y dentro del archivo el siguiente codigo
+---
+interface Props {
+    title: string;
+    link: string;
+    description: string;
+}
+const { title, link, description } = Astro.props;
+---
+<article class=" rounded-xl bg-gradient-to-r from-gray-600 via-purple-500 to-violet-400 p-0.5 transition shadow-lg hover:shadow-2xl opacity-80 hover:opacity-100 hover:scale-105 m-10">
+	<div class="rounded-[10px] bg-gray-200 p-4 sm:p-6"> 
+		<div class=" w-full flex justify-between text-gray-700">
+			<div class="w-full flex justify-center">
+				<a href={link} target="_blank">
+					<h3 class="mt-0.5 text-lg font-bold">
+						{title}
+					</h3>
+				</a>
+			</div>
+		</div>
+		<div class="mt-4 pl-10 flex justify-center">
+            <p class="text-lg text-violet-600">
+                {description}
+			</p>
+		</div>
+		
+	</div>
+</article>
+
+-en la carpeta pages debe de estar el contenido de la pagina proyecto1.astro con el siguiente contenido
+---
+import Layout from '../layouts/Layout.astro'
+
+---
+<Layout>
+    <div slot="article" class="w-full flex justify-center dark:bg-violet-200 dark:text-white mt-5 mb-5">
+		<div class=" md:max-w-5xl md:flex items-center justify-center">
+			<div class=" w-full flex justify-center md:hidden mt-16 mb-10">
+			</div>
+			<div>
+				<div class=" ml-5  p-3 rounded-xl" >
+					<h1 class="text-2xl font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-gray-600 via-purple-500 to-violet-400">Proyecto 1</h1>
+				</div>
+    			
+                
+			</div>
+      <div class=" hidden md:flex justify-end w-24 transition shadow-lg hover:shadow-2xl opacity-80 hover:opacity-100 hover:scale-105">
+        <img src="/public/logocmh.png" alt="familia" class=" h-126 rounded-lg">
+      </div>
+
+		</div>
+    
+	</div>
+</Layout>
+
+>>>>>>>> Termina <<<<<<<

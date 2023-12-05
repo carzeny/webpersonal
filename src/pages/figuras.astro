@@ -9,24 +9,23 @@ import Layout from '../layouts/Layout.astro'
 			</div>
 			<div>
 				<div class=" ml-5  p-3 rounded-xl" >
-					<h1 class="text-2xl font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-gray-600 via-purple-500 to-violet-400">Juego encontrar la secuencia de figuras</h1>
+					<h1 class="text-2xl font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-gray-600 via-purple-500 to-violet-400">Juego encontrar el orden de aparición de las figuras</h1>
 					<br>
 				</div>
-                <div class="grid grid-cols-3 gap-3 items-center justify-center">
-                    <div><img id="num0" src="/pregunta.png" width= "150px" height="130px" onclick="{cargarNum(0);}"/>
-                    </div>
+                <div id="oMostrar" class="grid grid-cols-3 gap-3 items-center justify-center">
+                    <div><img id="fig0" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(0);}"/></div>
                     <div></div>
-                    <div><img id="num1" src="/pregunta.png" width= "150px" height="130px" onclick="{cargarNum(1)}"/></div>
+                    <div><img id="fig1" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(1)}"/></div>
+                    <div><img id="fig2" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(2)}"/> </div>
+                    <div> <img id="fim" src="/public/pregunta.jpeg" width= "150px" height="130px"/></div>
+                    <div><img id="fig3" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(3)}"/></div>
+                    <div><img id="fig4" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(4)}"/></div>
                     <div></div>
-                    <div><img id="num2" src="/pregunta.png" width= "150px" height="130px" onclick="{cargarNum(2)}"/></div>
-                    <div></div>
-                    <div><img id="num3" src="/pregunta.png" width= "150px" height="130px" onclick="{cargarNum(3)}"/></div>
-                    <div></div>
-                    <div><img id="num4" src="/pregunta.png" width= "150px" height="130px" onclick="{cargarNum(4)}"/></div> 
+                    <div><img id="fig5" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(5)}"/></div> 
                 </div>
                 
                 <div class="flex justify-center">
-                    <button id="btn" class=" bg-violet-400 rounded-lg p-2" onclick="{voltear()}">  J u g a r  </button>
+                    <button id="btnfig" class=" bg-violet-400 rounded-lg p-2" onclick="{ocultar()}">  J u g a r  </button>
                 </div>
 			</div>
 		</div>
