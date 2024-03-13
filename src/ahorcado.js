@@ -1,28 +1,28 @@
-   let pos=0, errores=0;
-     let tema=["aguascalientes","baja california","baja california sur","campeche","chiapas","chihuahua","coahuila","colima","durango","guanajuato","guerrero","hidalgo","jalisco","mexico","michoacan","morelos","nayarit","nuevo leon","oaxaca","puebla","queretaro","quintana roo","san luis potosi","sinaloa","sonora","tabasco","tamaulipas","tlaxcala","veracruz","yucatan","zacatecas"];
-     let  guiones=[], palabraFinal="", padiv="", letrasArray=[];
-     for(;;)
-     {
+let pos=0, errores=0;
+let tema=["aguascalientes","baja california","baja california sur","campeche","chiapas","chihuahua","coahuila","colima","durango","guanajuato","guerrero","hidalgo","jalisco","mexico","michoacan","morelos","nayarit","nuevo leon","oaxaca","puebla","queretaro","quintana roo","san luis potosi","sinaloa","sonora","tabasco","tamaulipas","tlaxcala","veracruz","yucatan","zacatecas"];
+    let  guiones=[], palabraFinal="", padiv="", letrasArray=[];
+    for(;;)
+    {
         pos= Math.round(Math.random()*31)-1;
         if(pos>=0 && pos<=5)
-           break;
+        break;
     }
-     
+    
     
     console.log(pos);
-     padiv=tema[pos];
-     
-     function deshabilitar()
-     {
-         document.getElementById("btn").disabled=true;
-         document.getElementById("txt1").disabled=true;
-     }
-     
-     function cargar()
-     { for(let i=0;i<padiv.length;i++)
+    padiv=tema[pos];
+    
+    function deshabilitar()
+    {
+        document.getElementById("btn").disabled=true;
+        document.getElementById("txt1").disabled=true;
+    }
+    
+    function cargar()
+    { for(let i=0;i<padiv.length;i++)
         {
-         guiones[i]="_";
-         letrasArray[i]=padiv.charAt(i);
+        guiones[i]="_";
+        letrasArray[i]=padiv.charAt(i);
         }
         for(let i in padiv)
         {
@@ -31,10 +31,10 @@
         document.getElementById("adi").innerHTML=palabraFinal;
         let texh4="Tu palabra a adivinar tiene "+ tema[pos].length+ " caracteres"
         document.getElementById("txtadi").innerHTML=texh4;
-     }
-     cargar();
+    }
+    cargar();
 
-     const encontrarLetra= ()=>{  
+    const encontrarLetra= ()=>{  
         let letra="";         
         letra=document.getElementById("txt1").value;
         let cc=0, ban=0;
@@ -42,9 +42,9 @@
         while (cc<padiv.length)
         {
             if(letra===padiv.charAt(cc))
-               {guiones[cc]=letra;
+            {guiones[cc]=letra;
                 ban=1;
-               }
+            }
             cc++;
         }
         let pf=0;
@@ -58,7 +58,7 @@
         document.getElementById("txt1").value="";
         document.getElementById("txt1").focus();
         if (ban==0)
-          errores++;
+        errores++;
         
         if(errores==1)
             document.getElementById("img0").src="/2.png";
@@ -75,16 +75,16 @@
             
         if(errores<3 && guiones.indexOf("_")<0)
         {
-         document.getElementById("img0").src="/genio.png";
-         document.getElementById("perdio").innerHTML="G A N A S T E";
-         deshabilitar();
-         document.getElementById("btn").hidden=true;
+        document.getElementById("img0").src="/genio.png";
+        document.getElementById("perdio").innerHTML="G A N A S T E";
+        deshabilitar();
+        document.getElementById("btn").hidden=true;
         document.getElementById("btnvj").hidden=false;
 
         }    
-     }
+    }
 
-   
-   const dioclic=document.getElementById("btn");
-   dioclic.addEventListener("click",encontrarLetra);
+
+const dioclic=document.getElementById("btn");
+dioclic.addEventListener("click",encontrarLetra);
 

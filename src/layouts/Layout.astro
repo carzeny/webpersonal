@@ -348,6 +348,99 @@ function dioclicfig(pfig)
   console.log(figuras[numfigfin[pfig]]);
 }
 // termina juego de figuras
+//Juego del ahorcado
+let pos=0, errores=0;
+let tema=["aguascalientes","baja california","baja california sur","campeche","chiapas","chihuahua","coahuila","colima","durango","guanajuato","guerrero","hidalgo","jalisco","mexico","michoacan","morelos","nayarit","nuevo leon","oaxaca","puebla","queretaro","quintana roo","san luis potosi","sinaloa","sonora","tabasco","tamaulipas","tlaxcala","veracruz","yucatan","zacatecas"];
+    let  guiones=[], palabraFinal="", padiv="", letrasArray=[];
+    for(;;)
+    {
+        pos= Math.round(Math.random()*31)-1;
+        if(pos>=0 && pos<=5)
+        break;
+    }
+    
+    
+    console.log(pos);
+    padiv=tema[pos];
+    
+    function deshabilitar()
+    {
+        document.getElementById("btn").disabled=true;
+        document.getElementById("txt1").disabled=true;
+    }
+    
+    function cargar()
+    { for(let i=0;i<padiv.length;i++)
+        {
+        guiones[i]="_";
+        letrasArray[i]=padiv.charAt(i);
+        }
+        for(let i in padiv)
+        {
+            palabraFinal+="_ "
+        }
+        document.getElementById("adi").innerHTML=palabraFinal;
+        let texh4="Tu palabra a adivinar tiene "+ tema[pos].length+ " caracteres"
+        document.getElementById("txtadi").innerHTML=texh4;
+    }
+    cargar();
+
+    const encontrarLetra= ()=>{  
+        let letra="";         
+        letra=document.getElementById("txt1").value;
+        let cc=0, ban=0;
+        palabraFinal="";
+        while (cc<padiv.length)
+        {
+            if(letra===padiv.charAt(cc))
+            {guiones[cc]=letra;
+                ban=1;
+            }
+            cc++;
+        }
+        let pf=0;
+        while(pf<guiones.length)
+        { 
+            palabraFinal+=guiones[pf]+" "
+            pf++;
+        }
+        //alert(padiv+"\n letras acertadas "+guiones);
+        document.getElementById("adi").innerHTML=palabraFinal;
+        document.getElementById("txt1").value="";
+        document.getElementById("txt1").focus();
+        if (ban==0)
+        errores++;
+        
+        if(errores==1)
+            document.getElementById("img0").src="/2.png";
+        if(errores==2)
+            document.getElementById("img0").src="/3.png";
+        if(errores==3)
+        {   
+            deshabilitar(); 
+            document.getElementById("img0").src="/4.png";
+            document.getElementById("perdio").innerHTML="P E R D I S T E"; 
+            document.getElementById("btn").hidden=true;
+            document.getElementById("btnvj").hidden=false;
+        }
+            
+        if(errores<3 && guiones.indexOf("_")<0)
+        {
+        document.getElementById("img0").src="/genio.png";
+        document.getElementById("perdio").innerHTML="G A N A S T E";
+        deshabilitar();
+        document.getElementById("btn").hidden=true;
+        document.getElementById("btnvj").hidden=false;
+
+        }    
+    }
+
+const dioclic=document.getElementById("btn");
+dioclic.addEventListener("click",encontrarLetra);
+
+
+//termina juego del ahorcado
+
 
 //Frase del dia
 let frases=['"La culpa debemos quitarla de nuestra mente y nuestro vocabulario, porque no sirve para nada (AA)"','"Tanto si crees que puedes, como si no, tienes razón (Henry Ford)"','"Si no puedes volar, corre; si no puedes correr, camina; si no puedes caminar, gatea, pero sigue avanzando hacia tu meta (Martin Luther King)"','"Cada fracaso enseña al individuo algo que necesitaba aprender (Charles Dickens)"','"La lógica te llevará de la A a la Z. La imaginación te llevará a cualquier lugar (Albert Einstein)"', '"Cambia el pensamiento y cambiará el sentimiento (AA)"', '"Lo que no te mata, te hace más fuerte (Friedrich Nietzsche)"', '"No cuentes los días, haz que los días cuenten  (Muhammad Ali)"', '"La disciplina es el puente entre metas y logros (Jim Rohn)"','"Todo lo que se puede imaginar es real  (Pablo Picasso)"','"Todo parece imposible hasta que se hace (Nelson Mandela)"','"La excelencia no es un acto, es un hábito (Aristóteles)"', '"Sé el cambio que deseas ver en el mundo (Mahatma Gandhi)"','"Vivir es nacer a cada instante (Erich Fromm)"','"El valor de una idea radica en su uso (Thomas Edison)"','"La mejor manera de empezar algo es dejar de hablar de ello y hacerlo (Walt Disney)"','"Las chicas buenas conocen sus límites, sin embargo, las mujeres inteligentes saben que no tienen ninguno (Marilyn Monroe)"','"Por encima de todo, sé la heroína de tu vida, no la víctima (Nora Ephron)"','"Piensa como una reina. Una reina no tiene miedo de fracasar. El fracaso es solo otro paso hacia la grandeza (Oprah Winfrey)"','"La medida del amor es amar sin medida (San Agustín)"','"El éxito es la suma de pequeños esfuerzos repetidos día tras día (Robert Collier)"','"El mejor momento del día es ahora (Pierre Bonnard)"','"La mala noticia es que el tiempo vuela. La buena noticia es que tú eres el piloto (Michael Altshuler)"','"Donde reina el amor, siempre sobran las leyes (Platón)"','"Sonríe cuando te mires al espejo. hazlo todas las mañanas y comenzarás a ver una gran diferencia en tu vida (Yoko Ono)"'];
