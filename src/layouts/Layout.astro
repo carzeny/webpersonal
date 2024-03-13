@@ -351,7 +351,7 @@ function dioclicfig(pfig)
 //Juego del ahorcado
 let pos=0, errores=0;
 let tema=["aguascalientes","baja california","baja california sur","campeche","chiapas","chihuahua","coahuila","colima","durango","guanajuato","guerrero","hidalgo","jalisco","mexico","michoacan","morelos","nayarit","nuevo leon","oaxaca","puebla","queretaro","quintana roo","san luis potosi","sinaloa","sonora","tabasco","tamaulipas","tlaxcala","veracruz","yucatan","zacatecas"];
-    let  guiones=[], palabraFinal="", padiv="", letrasArray=[];
+let  guiones=[], palabraFinal="", padiv="", letrasArray=[];
     for(;;)
     {
         pos= Math.round(Math.random()*31)-1;
@@ -435,8 +435,8 @@ let tema=["aguascalientes","baja california","baja california sur","campeche","c
         }    
     }
 
-const dioclic=document.getElementById("btn");
-dioclic.addEventListener("click",encontrarLetra);
+const dioclicah=document.getElementById("btn");
+dioclicah.addEventListener("click",encontrarLetra);
 
 
 //termina juego del ahorcado
