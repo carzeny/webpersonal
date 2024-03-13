@@ -17,6 +17,9 @@ npm run build
 git status
 -para agregar al staging area todos los archivos del proyecto
 git add .
+--
+git push origin main  
+git pull origin main   
 -cuando tenemos una version terminada y la vamos a subir al repository
 git commit -m “se agrego el juego de encontrar secuencia de numeros”
 
