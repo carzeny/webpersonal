@@ -23,7 +23,7 @@ import Frase from '../components/Frase.astro'
 
 //Codigo para el juego del memorama
 let barpos=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
-let cartas=["/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png","/public/c.jpg", "/public/cs.png","/public/java.jpg","/public/js.png","/public/perl.png","/public/python.png","/public/R.png", "/public/ruby.png","/public/go.png","/public/swift.png"];
+let cartas=["/c.jpg", "/cs.png","/java.jpg","/js.png","/perl.png","/python.png","/R.png", "/ruby.png","/go.png","/swift.png","/c.jpg", "/cs.png","/java.jpg","/js.png","/perl.png","/python.png","/R.png", "/ruby.png","/go.png","/swift.png"];
 let i=barpos.length;
 let  l=0, temp=0, j=0, clic=0, primerclic=0, segundoclic=0, aciertos=0;
 let  img1="",img2="";
@@ -46,7 +46,7 @@ const felicidades=()=>
         const nuevoMemorama=()=>
         { var output='';
         barajear();
-        output='<div> <img id="img0" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(0)"/></div><div> <img id="img1" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(1)"/> </div><div> <img id="img2" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(2)"/> </div><div> <img id="img3" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(3)"/> </div><div> <img id="img4" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(4)"/> </div><div> <img id="img5" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(5)"/> </div><div> <img id="img6" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(6)"/> </div><div> <img id="img7" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(7)"/> </div><div> <img id="img8" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(8)"/> </div><div> <img id="img9" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(9)"/> </div><div> <img id="img10" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(10)"/> </div><div> <img id="img11" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(11)"/> </div><div> <img id="img12" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(12)"/> </div><div> <img id="img13" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(13)"/> </div><div> <img id="img14" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(14)"/> </div><div> <img id="img15" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(15)"/> </div><div> <img id="img16" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(16)"/> </div><div> <img id="img17" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(17)"/> </div><div> <img id="img18" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(18)"/> </div><div> <img id="img19" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(19)"/> </div>'
+        output='<div> <img id="img0" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(0)"/></div><div> <img id="img1" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(1)"/> </div><div> <img id="img2" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(2)"/> </div><div> <img id="img3" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(3)"/> </div><div> <img id="img4" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(4)"/> </div><div> <img id="img5" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(5)"/> </div><div> <img id="img6" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(6)"/> </div><div> <img id="img7" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(7)"/> </div><div> <img id="img8" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(8)"/> </div><div> <img id="img9" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(9)"/> </div><div> <img id="img10" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(10)"/> </div><div> <img id="img11" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(11)"/> </div><div> <img id="img12" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(12)"/> </div><div> <img id="img13" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(13)"/> </div><div> <img id="img14" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(14)"/> </div><div> <img id="img15" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(15)"/> </div><div> <img id="img16" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(16)"/> </div><div> <img id="img17" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(17)"/> </div><div> <img id="img18" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(18)"/> </div><div> <img id="img19" src="/pregunta.jpeg" width= "150px" height="130px" onclick="voltearCarta(19)"/> </div>'
         document.getElementById('table_memoria').innerHTML=output;
           
         }
@@ -61,8 +61,8 @@ const felicidades=()=>
       }
 const detenerTiempo=()=>
 {  
-  document.getElementById('img'+primerclic).src="/public/pregunta.jpeg";
-  document.getElementById('img'+segundoclic).src="/public/pregunta.jpeg";
+  document.getElementById('img'+primerclic).src="/pregunta.jpeg";
+  document.getElementById('img'+segundoclic).src="/pregunta.jpeg";
 
 }
 const adivinoCartas=()=>
@@ -110,7 +110,7 @@ const voltearCarta=(pos)=>
 //Codigo para el juego de numeros 
 let posnum=[0,1,2,3,4,5,6,7,8,9];
 let poscargadas=[];
-let numeros=["/public/cero.png","/public/uno.png","/public/dos.png","/public/tres.png","/public/cuatro.png","/public/cinco.png","/public/seis.png","/public/siete.png","/public/ocho.png","/public/nueve.png"];
+let numeros=["/cero.png","/uno.png","/dos.png","/tres.png","/cuatro.png","/cinco.png","/seis.png","/siete.png","/ocho.png","/nueve.png"];
 let dioclic=-1, ban=0;
 
 const barajearNum=()=>
@@ -133,7 +133,7 @@ function tapar()
 {
   for (let i=0; i<5; i++)
   {
-    document.getElementById("num"+i).src="/public/pregunta.png";
+    document.getElementById("num"+i).src="/pregunta.png";
   }
 }
 function cargarNum(n)
@@ -146,7 +146,7 @@ function cargarNum(n)
     }
     else
     {
-      document.getElementById("num"+n).src="/public/fallo.png"
+      document.getElementById("num"+n).src="/fallo.png"
       ban=1
     }
   }
@@ -158,7 +158,7 @@ function cargarNum(n)
     }
     else
     {
-      document.getElementById("num"+n).src="/public/fallo.png"
+      document.getElementById("num"+n).src="/fallo.png"
       ban=1;
     }
   }
@@ -170,7 +170,7 @@ function cargarNum(n)
     }
     else
     {
-      document.getElementById("num"+n).src="/public/fallo.png"
+      document.getElementById("num"+n).src="/fallo.png"
       ban=1
     }
   }
@@ -182,7 +182,7 @@ function cargarNum(n)
     }
     else
     {
-      document.getElementById("num"+n).src="/public/fallo.png"
+      document.getElementById("num"+n).src="/fallo.png"
       ban=1;
     }
   }
@@ -194,7 +194,7 @@ function cargarNum(n)
     }
     else
     {
-      document.getElementById("num"+n).src="/public/fallo.png"
+      document.getElementById("num"+n).src="/fallo.png"
       ban=1;
     }
   }
@@ -278,7 +278,7 @@ function ocultar()
     for(let p=0;p<numfig.length;p++)
     numfigfin[p]=numfig[p];
     barafigfin();
-    let cargarfigpantalla='<div><img id="fig0"src="/public/pregunta.jpeg" width="150px" height="130px" onclick="{dioclicfig(0)}"/></div><div></div><div><img id="fig1" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(1)}"/></div><div><img id="fig2" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(2)}"/> </div><div> <img id="fim" src="/public/pregunta.jpeg" width= "150px" height="130px"/></div><div><img id="fig3" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(3)}"/></div><div><img id="fig4" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(4)}"/></div><div></div><div><img id="fig5" src="/public/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(5)}"/></div>';
+    let cargarfigpantalla='<div><img id="fig0"src="/pregunta.jpeg" width="150px" height="130px" onclick="{dioclicfig(0)}"/></div><div></div><div><img id="fig1" src="/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(1)}"/></div><div><img id="fig2" src="/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(2)}"/> </div><div> <img id="fim" src="/pregunta.jpeg" width= "150px" height="130px"/></div><div><img id="fig3" src="/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(3)}"/></div><div><img id="fig4" src="/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(4)}"/></div><div></div><div><img id="fig5" src="/pregunta.jpeg" width= "150px" height="130px" onclick="{dioclicfig(5)}"/></div>';
     document.getElementById("oMostrar").innerHTML=cargarfigpantalla;
     document.getElementById("fim").hidden=false;
 
@@ -304,45 +304,45 @@ function dioclicfig(pfig)
     if (numfigfin[pfig]==numfig[clicfig])
     //{
       //console.log(numfig[clicfig]," ",numfig[0])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
    // }
   else
-    document.getElementById("fig"+pfig).src="/public/fallo.png";
+    document.getElementById("fig"+pfig).src="/fallo.png";
   }
   if(clicfig==1)
   { 
     if (numfigfin[pfig]==numfig[clicfig])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
     else
-      document.getElementById("fig"+pfig).src="/public/fallo.png";
+      document.getElementById("fig"+pfig).src="/fallo.png";
   }
   if(clicfig==2)
   { 
     if (numfigfin[pfig]==numfig[clicfig])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
     else
-      document.getElementById("fig"+pfig).src="/public/fallo.png";
+      document.getElementById("fig"+pfig).src="/fallo.png";
   }
   if(clicfig==3)
   { 
     if (numfigfin[pfig]==numfig[clicfig])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
     else
-      document.getElementById("fig"+pfig).src="/public/fallo.png";
+      document.getElementById("fig"+pfig).src="/fallo.png";
   }
   if(clicfig==4)
   { 
     if (numfigfin[pfig]==numfig[clicfig])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
     else
-      document.getElementById("fig"+pfig).src="/public/fallo.png";
+      document.getElementById("fig"+pfig).src="/fallo.png";
   }
   if(clicfig==5)
   { 
     if (numfigfin[pfig]==numfig[clicfig])
-      document.getElementById("fig"+pfig).src="/public/bien.png";
+      document.getElementById("fig"+pfig).src="/bien.png";
     else
-      document.getElementById("fig"+pfig).src="/public/fallo.png";
+      document.getElementById("fig"+pfig).src="/fallo.png";
   }
   console.log("dio clic en fig "+pfig);
   console.log(figuras[numfigfin[pfig]]);
