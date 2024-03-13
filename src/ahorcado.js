@@ -61,13 +61,13 @@
           errores++;
         
         if(errores==1)
-            document.getElementById("img0").src="/public/2.png";
+            document.getElementById("img0").src="/2.png";
         if(errores==2)
-            document.getElementById("img0").src="/public/3.png";
+            document.getElementById("img0").src="/3.png";
         if(errores==3)
         {   
             deshabilitar(); 
-            document.getElementById("img0").src="/public/4.png";
+            document.getElementById("img0").src="/4.png";
             document.getElementById("perdio").innerHTML="P E R D I S T E"; 
             document.getElementById("btn").hidden=true;
             document.getElementById("btnvj").hidden=false;
@@ -75,7 +75,7 @@
             
         if(errores<3 && guiones.indexOf("_")<0)
         {
-         document.getElementById("img0").src="/public/genio.png";
+         document.getElementById("img0").src="/genio.png";
          document.getElementById("perdio").innerHTML="G A N A S T E";
          deshabilitar();
          document.getElementById("btn").hidden=true;
