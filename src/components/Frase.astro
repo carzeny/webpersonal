@@ -1,6 +1,25 @@
 <div class=" w-full flex justify-center mb-10">
     <div class=" p-3" >
         <p id="pfra" class=" text-xl text-violet-600">
+            Cambia el pensamiento y cambiara el sentimiento
         </p>
     </div>
 </div>
+
+<script is:inline>
+//Frase del dia
+let frases=['"La culpa debemos quitarla de nuestra mente y nuestro vocabulario, porque no sirve para nada (AA)"','"Tanto si crees que puedes, como si no, tienes razón (Henry Ford)"','"Si no puedes volar, corre; si no puedes correr, camina; si no puedes caminar, gatea, pero sigue avanzando hacia tu meta (Martin Luther King)"','"Cada fracaso enseña al individuo algo que necesitaba aprender (Charles Dickens)"','"La lógica te llevará de la A a la Z. La imaginación te llevará a cualquier lugar (Albert Einstein)"', '"Cambia el pensamiento y cambiará el sentimiento (AA)"', '"Lo que no te mata, te hace más fuerte (Friedrich Nietzsche)"', '"No cuentes los días, haz que los días cuenten  (Muhammad Ali)"', '"La disciplina es el puente entre metas y logros (Jim Rohn)"','"Todo lo que se puede imaginar es real  (Pablo Picasso)"','"Todo parece imposible hasta que se hace (Nelson Mandela)"','"La excelencia no es un acto, es un hábito (Aristóteles)"', '"Sé el cambio que deseas ver en el mundo (Mahatma Gandhi)"','"Vivir es nacer a cada instante (Erich Fromm)"','"El valor de una idea radica en su uso (Thomas Edison)"','"La mejor manera de empezar algo es dejar de hablar de ello y hacerlo (Walt Disney)"','"Las chicas buenas conocen sus límites, sin embargo, las mujeres inteligentes saben que no tienen ninguno (Marilyn Monroe)"','"Por encima de todo, sé la heroína de tu vida, no la víctima (Nora Ephron)"','"Piensa como una reina. Una reina no tiene miedo de fracasar. El fracaso es solo otro paso hacia la grandeza (Oprah Winfrey)"','"La medida del amor es amar sin medida (San Agustín)"','"El éxito es la suma de pequeños esfuerzos repetidos día tras día (Robert Collier)"','"El mejor momento del día es ahora (Pierre Bonnard)"','"La mala noticia es que el tiempo vuela. La buena noticia es que tú eres el piloto (Michael Altshuler)"','"Donde reina el amor, siempre sobran las leyes (Platón)"','"Sonríe cuando te mires al espejo. hazlo todas las mañanas y comenzarás a ver una gran diferencia en tu vida (Yoko Ono)"'];
+let lof=frases.length-1;
+let psf=Math.floor(Math.random()* (lof+1));
+document.getElementById("pfra").innerHTML=frases[psf];
+
+
+setTimeout(() => {
+let psf=Math.floor(Math.random()* (lof+1));
+document.getElementById("pfra").innerHTML=frases[psf];
+console.log(frases[psf]);
+console.log(psf)
+    }, 20000);
+
+
+</script>
